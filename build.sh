@@ -21,7 +21,7 @@ BUILD_CC="LLVM=1 LLVM_IAS=1 LD=ld.lld AR=llvm-ar AS=llvm-as NM=llvm-nm OBJCOPY=l
 clone_tools() {
     cd $KERNEL_PATH
     git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 $KERNEL_PATH/.clang
-    git clone https://gitlab.com/inferno0230/AnyKernel3 --depth=1 $KERNEL_PATH/AnyKernel3
+    git clone https://github.com/Mrick343/AnyKernel3 --depth=1 $KERNEL_PATH/AnyKernel3
 }
 
 setup_ksu() {

@@ -68,6 +68,10 @@ Ubuntu() {
     curl -LSs "https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh" | bash -
 }
 
+Ddebian() {
+    curl -LSs "https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh" | bash -
+}
+
 regenerate_defconfig() {
     cd $KERNEL_PATH
     make O=out ARCH=arm64 $BUILD_CC $DEFCONFIG savedefconfig
@@ -128,6 +132,9 @@ elif [ -f /etc/fedora-release ]; then
 elif [ -f /etc/lsb-release ]; then
     echo -e "${green}Debian based distro detected!${clear}"
     Ubuntu
+elif [ -f /etc/os-release ]; then
+    echo -e "${green}Debian based distro detected!${clear}"
+    Debian
 else
     echo -e "${red}Unsupported OS or ARCH!${clear}"
     exit

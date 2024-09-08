@@ -12,7 +12,7 @@ clear='\033[0m'
 KERNEL_PATH=$PWD
 ARCH=arm64
 DEFCONFIG=vendor/lahaina-qgki_defconfig
-CLANG_PATH=$KERNEL_PATH/.clang/clang-r510928
+CLANG_PATH=$KERNEL_PATH/.clang/clang-r530567
 export PATH=$CLANG_PATH/bin:$PATH
 FULL_LTO=auto
 KernelSU=false
@@ -26,7 +26,7 @@ clone_tools() {
 
 setup_ksu() {
     cd $KERNEL_PATH
-    curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+    curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
     grep -q "CONFIG_MODULES=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_MODULES=y" >> "arch/arm64/configs/$DEFCONFIG"
     grep -q "CONFIG_KPROBES=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_KPROBES=y" >> "arch/arm64/configs/$DEFCONFIG"
     grep -q "CONFIG_HAVE_KPROBES=y" "arch/arm64/configs/$DEFCONFIG" || echo "CONFIG_HAVE_KPROBES=y" >> "arch/arm64/configs/$DEFCONFIG"
@@ -68,7 +68,7 @@ Ubuntu() {
     curl -LSs "https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh" | bash -
 }
 
-Ddebian() {
+Debian() {
     curl -LSs "https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh" | bash -
 }
 
